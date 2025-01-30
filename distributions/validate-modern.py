@@ -46,7 +46,10 @@ warnings = []
 @click.option('--github-commit', default=None)
 @click.option('--debug', is_flag=True)
 def main(manifest: str, tar: str, compare_with_branch: str, repo_path: str, arm64: bool, github_token: str, github_pr: str, github_commit: str, debug: bool):
+    raise RuntimeError('Test')
+    
     try:
+        
         if tar is not None:
             with open(tar, 'rb') as fd:
                 read_tar(tar, '<none>', fd, ARM64_ELF_MAGIC if arm64 else  X64_ELF_MAGIC)
